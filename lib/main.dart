@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'controllers/login_controller.dart';
 import 'controllers/service_controller.dart';
 import 'controllers/service_detail_controller.dart';
+import 'controllers/cita_controller.dart';
 
 import 'controllers/cliente_controller.dart';
 import 'controllers/personal_controller.dart';
@@ -27,6 +28,8 @@ void main() async {
         ChangeNotifierProvider(create: (_) => PersonalController()),
 
         ChangeNotifierProvider(create: (_) => ServiceDetailController()),
+
+        ChangeNotifierProvider(create: (_) => CitaController()),
       ],
       child: MyApp(isLoggedIn: clienteId != null),
     ),

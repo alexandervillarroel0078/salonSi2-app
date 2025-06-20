@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '/screens/home/inicio_tab.dart';
 import '/screens/cliente_perfil_screen.dart';
 import '/screens/reservar_tab.dart';
-import '/screens/mis_citas_tab.dart';
+import '../cita_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final List<Widget> pages = [
       const InicioTab(),
       const ReservarTab(), // Solo diseño
-      const MisCitasTab(),
+      CitaScreen(clienteId: _clienteId!),
       ClientePerfilScreen(clienteId: _clienteId!),
     ];
 

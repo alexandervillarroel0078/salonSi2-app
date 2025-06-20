@@ -25,12 +25,15 @@ class LoginController with ChangeNotifier {
       passwordController.text,
     );
 
-    if (response['success'] == true) {
+    if (response.containsKey('token') && response.containsKey('user')) {
       final user = response['user'];
-      _clienteId = user['id'];
+      final token = response['token'];
+
+      _clienteId = user['cliente_id'];
 
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setInt('cliente_id', _clienteId!); // Opcional: guardarlo
+      await prefs.setInt('cliente_id', _clienteId!);
+      await prefs.setString('token', token);
 
       Navigator.pushReplacementNamed(context, '/main');
     } else {
