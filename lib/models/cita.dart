@@ -99,4 +99,8 @@ class Cita {
           .toList(),
     );
   }
+
+  get cliente => null;
+
+  get total => null;
 }
